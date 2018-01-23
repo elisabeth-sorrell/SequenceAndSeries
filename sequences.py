@@ -6,7 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class Sequence(Resource):
+class Fibonacci(Resource):
    def get(self, num):
       req = int(num)
       if req == 0:
@@ -19,6 +19,15 @@ class Sequence(Resource):
       
       return jsonify(result)
 
-api.add_resource(Sequence, '/sequence/<num>')
+class Square(Resource):
+   def get(self, num):
+      req = int(num)
+      square = req * req
+      result = { 'square' : square }
+      return jsonify(result)
+
+api.add_resource(Fibonacci, '/sequence/fibonacci/<num>')
+api.add_resource(Square, '/sequence/square/<num>')
+
 if __name__ == '__main__':
    app.run(port='1111')
