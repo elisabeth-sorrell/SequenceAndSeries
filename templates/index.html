@@ -5,6 +5,10 @@
   </head>
 
   <body>
-    <h2>Fibonacci calculation of {{ num }} is  {{ fib_num }}</h2>
+    <form action="/calculate" method="post">
+      <input type="number" name="num"></input>
+      <input type="submit" value="Calculate!"></input>
+    </form>
+    <div id="answer">{{ answer }}</div>
   </body>
 </html>
